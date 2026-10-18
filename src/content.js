@@ -60,21 +60,6 @@ export default {
     },
   ],
 
-  story: {
-    enabled: true,
-    eyebrow: 'A journey of two hearts',
-    title: 'Our Story',
-    subtitle: 'How two families became one',
-    // Each item uses `asset` (a photo in src/assets/), `art` (a painting in public/art/) or `img` (a photo in public/photos/).
-    // Optional `position` (CSS object-position, e.g. '50% 70%') moves the crop inside the circle;
-    // optional `transform` (CSS transform) straightens/zooms a tilted photo.
-    items: [ // TODO: replace the sample years, text and pictures with your own story
-      { year: '2016', title: 'First met', text: 'Batchmates in the same school corridors — shared notes, lunch-break laughter and a friendship that quietly grew into something more.', asset: 'Media (5).jpg', transform: 'translateY(5%) scale(1.15)' },
-      { year: '2023', title: 'Growing Up, Growing Together', text: 'Separate cities, distinct chapters, yet we stayed connected through every milestone, always sharing our lives no matter the miles.', asset: 'Media (4).jpg', position: '50% 70%', transform: 'translate(8.5%, -3%) rotate(12deg) scale(1.3)' },
-      { year: '2026', title: 'Two families, one blessing', text: 'The Prasads and the Singhs met over chai and laddoos — and set a date for December.', asset: 'Media (11).jpg' },
-    ],
-  },
-
   details: {
     enabled: true,
     eyebrow: 'For our guests',

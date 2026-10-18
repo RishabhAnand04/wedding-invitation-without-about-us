@@ -1,4 +1,4 @@
-import { art, publicUrl } from './art.js';
+import { art } from './art.js';
 import { icon } from './icons.js';
 import { content, fill } from './i18n.js';
 
@@ -187,28 +187,6 @@ function celebrations(c) {
   </section>`;
 }
 
-function story(c) {
-  const s = c.story;
-  if (!s?.enabled || !s.items?.length) return '';
-  return `
-  <section class="section story" aria-labelledby="story-title">
-    ${floater('vine-sprig', 'floater--bob', 'top:5%;left:-1.5%;width:clamp(90px,13vw,190px);opacity:.9')}
-    ${floater('vine-sprig', 'floater--bob floater--flip', 'top:12%;right:-1.5%;width:clamp(90px,13vw,190px);opacity:.9')}
-    ${floater('parrots', 'floater--sm-up floater--sway', 'top:4%;left:10%;width:clamp(76px,10vw,140px)')}
-    ${floater('lotus-cluster', 'floater--md-up floater--bob', 'bottom:0;right:6%;width:clamp(70px,9vw,130px)')}
-    ${sectionHead((k) => k.story, 'story-title')}
-    <div class="story__grid" data-reveal-group>
-      ${s.items.map((item, i) => `
-        <div class="story__item" data-reveal-item>
-          <div class="story__photo"><img src="${item.asset ? assetUrl(item.asset) : item.art ? art(item.art) : publicUrl(`photos/${item.img}`)}" ${ta('alt', (k) => k.story.items[i].title)}${item.position || item.transform ? ` style="${item.position ? `object-position:${esc(item.position)};` : ''}${item.transform ? `transform:${esc(item.transform)};` : ''}"` : ''} loading="lazy" decoding="async"></div>
-          <p class="label">${t((k) => k.story.items[i].year)}</p>
-          <h3>${t((k) => k.story.items[i].title)}</h3>
-          <p class="story__text">${t((k) => k.story.items[i].text)}</p>
-        </div>`).join('')}
-    </div>
-  </section>`;
-}
-
 function details(c) {
   const d = c.details;
   if (!d?.enabled) return '';
@@ -327,7 +305,6 @@ export function renderSite() {
     ${hero(c)}
     ${families(c)}
     ${celebrations(c)}
-    ${story(c)}
     ${details(c)}
     ${venues(c)}
     ${countdown(c)}
