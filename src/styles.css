@@ -1118,6 +1118,68 @@ h2 {
   text-align: left;
 }
 
+/* ---------- Contact ---------- */
+
+.contact {
+  padding-block: clamp(2.5rem, 6vw, 4rem);
+}
+
+/* Always two columns: bride's side and groom's side next to each other. */
+.contact__grid {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.contact__side {
+  text-align: center;
+  padding: 0.25rem clamp(0.5rem, 3vw, 2rem);
+}
+
+.contact__side + .contact__side {
+  border-left: 1px solid rgba(201, 162, 39, 0.5);
+}
+
+.contact__side .label {
+  font-size: clamp(0.66rem, 2vw, 0.8rem);
+  letter-spacing: 0.16em;
+}
+
+.contact__side h3 {
+  font-family: var(--font-display);
+  color: var(--maroon);
+  font-size: clamp(1.1rem, 3.6vw, 1.55rem);
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0.45rem 0 0.5rem;
+}
+
+.contact__phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  min-height: 44px;
+  color: var(--maroon);
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact__phone .icon {
+  color: var(--gold);
+}
+
+.contact__address {
+  font-family: var(--font-body);
+  color: var(--ink-body);
+  font-size: clamp(0.85rem, 2.6vw, 1.02rem);
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
 /* ---------- Countdown ---------- */
 
 .countdown__card {

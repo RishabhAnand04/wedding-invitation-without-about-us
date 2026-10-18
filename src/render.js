@@ -262,6 +262,25 @@ function countdown(c) {
   </section>`;
 }
 
+function contact(c) {
+  const ct = c.contact;
+  if (!ct?.enabled || !ct.sides?.length) return '';
+  const side = (k, i) => k.contact.sides[i];
+  return `
+  <section class="section contact" aria-labelledby="contact-title">
+    ${sectionHead((k) => k.contact, 'contact-title')}
+    <div class="contact__grid" data-reveal-group>
+      ${ct.sides.map((s, i) => `
+        <div class="contact__side" data-reveal-item>
+          <p class="label">${t((k) => side(k, i).label)}</p>
+          <h3>${t((k) => side(k, i).name)}</h3>
+          ${s.phone ? `<a class="contact__phone" href="${telHref(s.phone)}">${icon('phone', { size: 16 })}${esc(s.phone)}</a>` : ''}
+          ${s.address?.length ? `<p class="contact__address">${s.address.map((_, j) => t((k) => side(k, i).address[j])).join('<br>')}</p>` : ''}
+        </div>`).join('')}
+    </div>
+  </section>`;
+}
+
 function footer(c) {
   const f = c.footer;
   return `
@@ -308,6 +327,7 @@ export function renderSite() {
     ${details(c)}
     ${venues(c)}
     ${countdown(c)}
+    ${contact(c)}
     ${footer(c)}
   </main>
   ${musicToggle(c)}`;
