@@ -814,6 +814,8 @@ h2 {
 .stage {
   position: relative;
   display: grid;
+  /* minmax(0, …) lets one-line card text shrink instead of widening the column past the screen. */
+  grid-template-columns: minmax(0, 1fr);
   gap: 2.5rem;
   max-width: 560px;
   margin: 0 auto;
@@ -943,6 +945,8 @@ h2 {
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .event-card__time,
@@ -1107,6 +1111,11 @@ h2 {
   font-size: 1.05rem;
   line-height: 1.6;
   margin-bottom: 1.4rem;
+}
+
+/* Left-aligned so the pin always sits right before the first word; the pin + text block stays centred. */
+.venue__address > span {
+  text-align: left;
 }
 
 /* ---------- Countdown ---------- */
